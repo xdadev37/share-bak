@@ -1,0 +1,18 @@
+services:
+  mc:
+    image: ${REGISTRY}/mc
+    container_name: mc
+    runtime: crun
+    restart: always
+    entrypoint: tail
+    command: -f /dev/null
+    configs:
+      - source: mc
+        target: /root/.mc/config.json
+    networks:
+      - ingress
+    volumes:
+      - type: volume
+        read_only: true
+        source: ftpgrab_data
+        target: /var/data

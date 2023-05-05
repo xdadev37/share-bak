@@ -1,0 +1,28 @@
+server:
+  ftp:
+    host: stoshare
+    port: 21
+    username: admin
+    password: "4696048pouria"
+    sources:
+      - "/OfficeShare/پرونده ها"
+    timeout: 5s
+    disableUTF8: false
+    disableEPSV: false
+    disableMLSD: false
+    escapeRegexpMeta: false
+    tls: false
+    insecureSkipVerify: false
+    logTrace: false
+download:
+  output: /var/data
+  uid: 1000
+  gid: 1000
+  chmodFile: 0o644
+  chmodDir: 0o755
+  retry: 3
+  hideSkipped: false
+  tempFirst: false
+  createBaseDir: false
+db:
+  path: /var/ftpgrab.db

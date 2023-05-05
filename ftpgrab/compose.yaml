@@ -1,0 +1,18 @@
+services:
+  ftpgrab:
+    image: ${REGISTRY}/ftpgrab
+    runtime: crun
+    restart: always
+    command: --config="/var/ftpgrab.yml" --schedule="0 */2 * * *"
+    networks:
+      - ingress
+    configs:
+      - source: ftpgrab
+        target: /var/ftpgrab.yml
+    volumes:
+      - type: volume
+        source: ftpgrab_db
+        target: /var/ftpgrab.db
+      - type: volume
+        source: ftpgrab_data
+        target: /var/data

@@ -1,0 +1,43 @@
+services:
+  ftpgrab:
+    env_file:
+      - .env
+    extends:
+      service: ftpgrab
+      file: "./ftpgrab/compose.yaml"
+  mc:
+    env_file:
+      - .env
+    extends:
+      service: mc
+      file: "./mc/compose.yaml"
+  ofelia:
+    env_file:
+      - .env
+    extends:
+      service: ofelia
+      file: "./ofelia/compose.yaml"
+
+networks:
+  ingress:
+    name: ingress
+    driver: overlay
+    attachable: true
+    external: true
+
+configs:
+  ofelia:
+    name: ofelia
+    file: "./ofelia/config.ini"
+  ftpgrab:
+    name: ftpgrab
+    file: "./ftpgrab/ftpgrab.yml"
+  mc:
+    name: mc
+    file: "./mc/config.json"
+
+volumes:
+  ftpgrab_db:
+    name: ftpgrab_db
+  ftpgrab_data:
+    name: ftpgrab_data
