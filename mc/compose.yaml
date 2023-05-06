@@ -1,18 +1,15 @@
 services:
   mc:
     image: ${REGISTRY}/mc
-    container_name: mc
     runtime: crun
     restart: always
-    entrypoint: tail
-    command: -f /dev/null
+    command: mirror --overwrite /var/ftpgrab_data/ oncolog/share-bak/
     configs:
       - source: mc
         target: /root/.mc/config.json
-    networks:
-      - ingress
+    network_mode: host
     volumes:
       - type: volume
         read_only: true
         source: ftpgrab_data
-        target: /var/data
+        target: /var/ftpgrab_data

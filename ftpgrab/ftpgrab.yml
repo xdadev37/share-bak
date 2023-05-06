@@ -1,11 +1,11 @@
 server:
   ftp:
-    host: stoshare
+    host: 192.168.100.8
     port: 21
     username: admin
     password: "4696048pouria"
     sources:
-      - "/OfficeShare/پرونده ها"
+      - "/array1/OfficeShare/پرونده ها"
     timeout: 5s
     disableUTF8: false
     disableEPSV: false
