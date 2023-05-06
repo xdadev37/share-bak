@@ -12,7 +12,7 @@ services:
     volumes:
       - type: volume
         source: ftpgrab_db
-        target: /var/ftpgrab.db
+        target: /var/db
       - type: volume
         source: ftpgrab_data
-        target: /var/data
+        target: /download

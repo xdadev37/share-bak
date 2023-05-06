@@ -25,4 +25,4 @@ download:
   tempFirst: false
   createBaseDir: false
 db:
-  path: /var/ftpgrab.db
+  path: /var/db/ftpgrab.db
