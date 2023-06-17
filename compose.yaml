@@ -1,16 +1,17 @@
 services:
   ftpgrab:
-    env_file:
-      - .env
     extends:
       service: ftpgrab
       file: "./ftpgrab/compose.yaml"
   mc:
-    env_file:
-      - .env
     extends:
       service: mc
       file: "./mc/compose.yaml"
+
+  ofelia:
+    extends:
+      service: ofelia
+      file: "./ofelia/compose.yaml"
 
 networks:
   ingress:
@@ -26,6 +27,9 @@ configs:
   mc:
     name: mc
     file: "./mc/config.json"
+  ofelia:
+    name: ofelia
+    file: "./ofelia/config.ini"
 
 volumes:
   ftpgrab_db:

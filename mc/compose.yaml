@@ -3,7 +3,8 @@ services:
     image: ${REGISTRY}/mc
     runtime: crun
     restart: always
-    command: mirror --overwrite --watch /var/ftpgrab_data/ oncolog/share-bak/
+    entrypoint: tail
+    command: -f /dev/null
     configs:
       - source: mc
         target: /root/.mc/config.json
