@@ -4,8 +4,7 @@ services:
     runtime: crun
     restart: always
     command: --config="/var/ftpgrab.yml" --schedule="0 */2 * * *"
-    networks:
-      - ingress
+    network_mode: host
     configs:
       - source: ftpgrab
         target: /var/ftpgrab.yml

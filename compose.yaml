@@ -13,13 +13,6 @@ services:
       service: ofelia
       file: "./ofelia/compose.yaml"
 
-networks:
-  ingress:
-    name: ingress
-    driver: overlay
-    attachable: true
-    external: true
-
 configs:
   ftpgrab:
     name: ftpgrab
