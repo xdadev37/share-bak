@@ -1,11 +1,11 @@
 server:
   ftp:
-    host: 192.168.100.8
+    host: shared.oncolog.ir
     port: 21
-    username: admin
-    password: "4696048pouria"
+    username: user
+    password: "Saman@Tabesh!"
     sources:
-      - "/array1/OfficeShare/پرونده ها"
+      - "/array1/Cases"
     timeout: 5s
     disableUTF8: false
     disableEPSV: false

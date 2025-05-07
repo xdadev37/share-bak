@@ -1,16 +1,10 @@
 services:
   ofelia:
-    image: ${REGISTRY}/ofelia
-    runtime: crun
-    restart: always
+    image: mcuadros/ofelia
+    restart: unless-stopped
     environment:
       TZ: "Asia/Tehran"
-    configs:
-      - source: ofelia
-        target: /etc/ofelia/config.ini
     network_mode: host
     volumes:
-      - type: bind
-        read_only: true
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "config.ini:/etc/ofelia/config.ini:ro"

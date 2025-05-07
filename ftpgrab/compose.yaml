@@ -1,17 +1,10 @@
 services:
   ftpgrab:
-    image: ${REGISTRY}/ftpgrab
-    runtime: crun
-    restart: always
+    image: crazymax/ftpgrab
+    restart: unless-stopped
     command: --config="/var/ftpgrab.yml" --schedule="0 */2 * * *"
     network_mode: host
-    configs:
-      - source: ftpgrab
-        target: /var/ftpgrab.yml
     volumes:
-      - type: volume
-        source: ftpgrab_db
-        target: /var/db
-      - type: volume
-        source: ftpgrab_data
-        target: /download
+      - "ftpgrab_db:/var/db"
+      - "ftpgrab_data:/download"
+      - "./ftpgrab.yml:/var/ftpgrab.yml:ro"

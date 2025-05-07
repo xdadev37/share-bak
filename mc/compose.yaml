@@ -1,16 +1,10 @@
 services:
   mc:
-    image: ${REGISTRY}/mc
-    runtime: crun
-    restart: always
+    image: minio/mc
+    restart: unless-stopped
     entrypoint: tail
     command: -f /dev/null
-    configs:
-      - source: mc
-        target: /root/.mc/config.json
     network_mode: host
     volumes:
-      - type: volume
-        read_only: true
-        source: ftpgrab_data
-        target: /var/ftpgrab_data
+      - "ftpgrab_data:/var/ftpgrab_data:ro"
+      - "config.json:/root/.mc/config.json:ro"

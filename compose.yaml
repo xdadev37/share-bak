@@ -1,3 +1,5 @@
+name: share-bak
+
 services:
   ftpgrab:
     extends:
@@ -7,22 +9,10 @@ services:
     extends:
       service: mc
       file: "./mc/compose.yaml"
-
   ofelia:
     extends:
       service: ofelia
       file: "./ofelia/compose.yaml"
-
-configs:
-  ftpgrab:
-    name: ftpgrab
-    file: "./ftpgrab/ftpgrab.yml"
-  mc:
-    name: mc
-    file: "./mc/config.json"
-  ofelia:
-    name: ofelia
-    file: "./ofelia/config.ini"
 
 volumes:
   ftpgrab_db:
