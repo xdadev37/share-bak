@@ -4,7 +4,8 @@ services:
     restart: unless-stopped
     entrypoint: tail
     command: -f /dev/null
-    network_mode: host
+    networks:
+      - ftpgrab
     volumes:
       - "ftpgrab_data:/var/ftpgrab_data:ro"
       - "config.json:/root/.mc/config.json:ro"

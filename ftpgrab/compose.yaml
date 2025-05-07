@@ -1,9 +1,11 @@
 services:
   ftpgrab:
     image: crazymax/ftpgrab
+    container_name: ftpgrab
     restart: unless-stopped
     command: --config="/var/ftpgrab.yml" --schedule="0 */2 * * *"
-    network_mode: host
+    networks:
+      - ftpgrab
     volumes:
       - "ftpgrab_db:/var/db"
       - "ftpgrab_data:/download"

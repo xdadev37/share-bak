@@ -19,3 +19,7 @@ volumes:
     name: ftpgrab_db
   ftpgrab_data:
     name: ftpgrab_data
+
+networks:
+  ftpgrab:
+    name: ftpgrab
