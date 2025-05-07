@@ -8,4 +8,4 @@ services:
       - ftpgrab
     volumes:
       - "ftpgrab_data:/var/ftpgrab_data:ro"
-      - "config.json:/root/.mc/config.json:ro"
+      - "./config.json:/root/.mc/config.json:ro"
