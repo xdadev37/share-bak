@@ -3,6 +3,8 @@ services:
     image: crazymax/ftpgrab
     container_name: ftpgrab
     restart: unless-stopped
+    extra_hosts:
+      - "shared.oncolog.ir=192.168.2.204"
     command: --config="/var/ftpgrab.yml" --schedule="0 */2 * * *"
     networks:
       - ftpgrab

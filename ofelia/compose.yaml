@@ -2,8 +2,6 @@ services:
   ofelia:
     image: mcuadros/ofelia
     restart: unless-stopped
-    extra_hosts:
-      - "shared.oncolog.ir=192.168.2.204"
     environment:
       TZ: "Asia/Tehran"
     networks:
